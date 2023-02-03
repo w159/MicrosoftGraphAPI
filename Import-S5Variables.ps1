@@ -12,10 +12,6 @@ function Import-S5Variables {
     
     # File Path Section
     $script:PNGLogoPath                = "$CurrentLocation\S5-SmallLogo.png"
-    #$script:AppCsvPath                 =  "$CSV_Exports\APP_Variables.csv"
-
-    # CSV Imports Section
-    #$script:APP_Variables              = Import-Csv -Path $AppCsvPath
 
     # 365 Auth Variables Section
     $script:AppId                      = $S5App.ClientID
