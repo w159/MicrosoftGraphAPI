@@ -10,6 +10,8 @@
 $AccessToken = Get-GraphAccessToken -ClientID $AppId -ClientSecret $AppSecret -TenantDomain $TenantId
 Invoke-GraphQuery -Method Get -Uri "/domains" -AccessToken $AccessToken -ExcludePreviewFeatures $true
 
+Full request results are returned to : $script:TokenRequestFull
+
 #>
 
 function Get-GraphAccessToken {
@@ -72,6 +74,7 @@ function Get-GraphAccessToken {
             # If an access token is returned, return this
             if ($OAuth2.access_token) {
                 $OAuth2.access_token
+                $script:TokenRequestFull = $OAuth2
             }
             else {
                 $ErrorMessage = "Unable to obtain an access token for $TenantDomain but an exception has not occurred"
